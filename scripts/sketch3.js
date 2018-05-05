@@ -36,7 +36,7 @@ function draw() {
        speed = -speed;
      }
      fill(252, 248, 224);
-     image(cloud, x, height / 3, cloud.width/5, cloud.height/5);
+     image(cloud, x, height / 4, cloud.width/7, cloud.height/7);
      x = x + speed;
 
     // moon
@@ -49,12 +49,13 @@ function draw() {
     // //trees and horses
     image(smallTree, 0, height/3, smallTree.width/6, smallTree.height/6);
     image(smallTree, 100, height/3, smallTree.width/6, smallTree.height/6);
-    image(smallTree, 300, height/3, smallTree.width/6, smallTree.height/6);
+    image(smallTree, 300, height/5, smallTree.width/6, smallTree.height/6);
     image(runningHorses, mouseX, mouseY, runningHorses.width/6, runningHorses.height/6);
-    image(bigTree, 700, height/3, bigTree.width/6, bigTree.height/6);
+    image(bigTree, 700, height/3, bigTree.width/7, bigTree.height/7);
     image(smallTree, 800, height/3, smallTree.width/6, smallTree.height/6);
-    image(bigTree, 950, height/3, bigTree.width/6, bigTree.height/6);
-    image(grazingHorse, mouseX, mouseY, grazingHorse.width/6, grazingHorse.height/6);
+    image(smallTree, 750, height/5, smallTree.width/6, smallTree.height/6);
+    image(bigTree, 950, height/3, bigTree.width/7, bigTree.height/7);
+    image(grazingHorse, 450, height/3, grazingHorse.width/6, grazingHorse.height/6);
 
 
   }
