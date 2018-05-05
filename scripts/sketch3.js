@@ -18,9 +18,9 @@ function setup() {
     secondP.html(" There may be some floating clouds.", true); //use html() to either retrieve the content of a DOM element for use in your P5 sketch or to modify the content of an element on the page
 
     smallTree = loadImage("assets/Tree-Free-PNG-Image.png");
-    bigTree =loadImage("assets/Green_Realistic_Tree_PNG_Clip_Art-1097.png")
-    runningHorses = loadImage("assets/horses.png")
-    grazingHorse = loadImage("assets/grazingHorse.png")
+    bigTree =loadImage("assets/Green_Realistic_Tree_PNG_Clip_Art-1097.png");
+    runningHorses = loadImage("assets/horses.png");
+    grazingHorse = loadImage("assets/grazingHorse.png");
 
 }
 
