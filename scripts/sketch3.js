@@ -23,7 +23,7 @@ function setup() {
 
 function draw() {
 
-    image(img, 0, height/2, img.width/6, img.height/6);
+    image(img, 0, height/3, img.width/6, img.height/6);
 
 
     //sky
