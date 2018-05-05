@@ -23,13 +23,14 @@ function setup() {
 
 function draw() {
 
-    image(img, 0, height/3, img.width/6, img.height/6);
-
-
     //sky
     noStroke();
     fill(61, 91, 140);
     rect(0,-0,windowWidth,windowHeight/2);
+
+    //trees
+    image(img, 0, height/3, img.width/6, img.height/6);
+    image(img, 20, height/3, img.width/6, img.height/6);
 
     //moon
     noStroke();
