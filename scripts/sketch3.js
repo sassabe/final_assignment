@@ -30,7 +30,10 @@ function draw() {
 
     //trees
     image(img, 0, height/3, img.width/6, img.height/6);
-    image(img, 20, height/3, img.width/6, img.height/6);
+    image(img, 100, height/3, img.width/6, img.height/6);
+    image(img, 300, height/3, img.width/6, img.height/6);
+    image(img, 700, height/3, img.width/6, img.height/6);
+
 
     //moon
     noStroke();
