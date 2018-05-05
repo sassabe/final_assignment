@@ -17,7 +17,10 @@ function setup() {
     secondP = createP("The sky will be a starry night that can change to day.");////create an element BESIDES a canvas element
     secondP.html(" There may be some floating clouds.", true); //use html() to either retrieve the content of a DOM element for use in your P5 sketch or to modify the content of an element on the page
 
-    img = loadImage("assets/Tree-Free-PNG-Image.png");
+    smallTree = loadImage("assets/Tree-Free-PNG-Image.png");
+    bigTree =loadImage("assets/Green_Realistic_Tree_PNG_Clip_Art-1097.png")
+    runningHorses = loadImage("assets/horses.png")
+    grazingHorse = loadImage("assets/grazingHorse.png")
 
 }
 
@@ -29,10 +32,16 @@ function draw() {
     rect(0,-0,windowWidth,windowHeight/2);
 
     //trees
-    image(img, 0, height/3, img.width/6, img.height/6);
-    image(img, 100, height/3, img.width/6, img.height/6);
-    image(img, 300, height/3, img.width/6, img.height/6);
-    image(img, 700, height/3, img.width/6, img.height/6);
+    image(smallTree, 0, height/3, img.width/6, img.height/6);
+    image(smallTree, 100, height/3, img.width/6, img.height/6);
+    image(smallTree, 300, height/3, img.width/6, img.height/6);
+    image(runningHorses, 450, height/3, img.width/6, img.height/6);
+    image(bigTree, 700, height/3, img.width/6, img.height/6);
+    image(smallTree, 800, height/3, img.width/6, img.height/6);
+    image(bigTree, 950, height/3, img.width/6, img.height/6);
+    image(grazingHorse, 650, height/3, img.width/6, img.height/6);
+
+
 
 
     //moon
