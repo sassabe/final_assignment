@@ -4,7 +4,7 @@ var runningHorses;
 var grazingHorse;
 
 let x = 0;
-let speed = 1;
+let speed = 10;
 
 let snowflakes = []; // array to hold snowflake objects
 
@@ -43,6 +43,7 @@ function draw() {
     // moon
 
       noStroke();
+
       fill(252, 248, 224);
       ellipse(width/6,height/5,60,60);
 
@@ -55,8 +56,8 @@ function draw() {
     image(smallTree, 750, height/5, smallTree.width/6, smallTree.height/6);
     image(grazingHorse, 450, height/2, grazingHorse.width/6, grazingHorse.height/6);
 
-    let t = frameCount / 45;
-
+    let t = frameCount / 55;
+    fill(random(255, 116));
   // create a random number of snowflakes each frame
   for (var i = 0; i < random(37); i++) {
     snowflakes.push(new snowflake()); // append snowflake object
@@ -101,6 +102,29 @@ function snowflake() {
   this.display = function() {
     ellipse(this.posX, this.posY, this.size);
   };
+
+  // show the 'before' image
+grazingHorse.loadPixels();
+
+// go through each row
+for (var y = 0; y < height; y++) {
+  // and each column
+  for(var x = 0; x < width; x++) {
+
+    // go through EVERY individual pixel's R, G, B, and A
+    var index = (x + y * width) * 4;
+
+      // mess with the RGBa values!
+      grazingHorse.pixels[index] = random(255); // red
+      // milo.pixels[index + 1] = 255 // green
+      grazingHorse.pixels[index + 2] = y; // blue
+      // milo.pixels[index + 3] = 0; // alpha
+  }
+}
+grazingHorse.updatePixels();
+
+// display manipulated image
+image(grazingHorse, 0, 0);
 }
 
   //change colors of the paragraph with mouseover and return with mouseout. I looked at Dan Shiffman's video https://www.youtube.com/watch?v=KeZBpeH59Q4 on how to set up callback functions.
