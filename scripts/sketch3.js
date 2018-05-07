@@ -4,7 +4,7 @@ var runningHorses;
 var grazingHorse;
 
 let x = 0;
-let speed = 10;
+let speed = 0.5;
 
 let snowflakes = []; // array to hold snowflake objects
 
@@ -108,9 +108,9 @@ grazingHorse.loadPixels();
 
 for (var y = 0; y < height; y++) {
   for(var x = 0; x < width; x++) {
-    var index = (x + y * width) * 7;
+    var index = (x + y * width) * 4;
       grazingHorse.pixels[index] = random(255); // red
-      grazingHorse.pixels[index + 5] = y; // blue
+      grazingHorse.pixels[index + 3] = y; // blue
   }
 }
 grazingHorse.updatePixels();
