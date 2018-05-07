@@ -114,7 +114,7 @@ for (var y = 0; y < height; y++) {
   }
 }
 grazingHorse.updatePixels();
-image(grazingHorse, 900, height/2, grazingHorse.width/2, grazingHorse.height/2);
+image(grazingHorse, 0,0);
 }
 
   //change colors of the paragraph with mouseover and return with mouseout. I looked at Dan Shiffman's video https://www.youtube.com/watch?v=KeZBpeH59Q4 on how to set up callback functions.
