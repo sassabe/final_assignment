@@ -56,6 +56,7 @@ function draw() {
     image(smallTree, 750, height/5, smallTree.width/6, smallTree.height/6);
     image(grazingHorse, 450, height/2, grazingHorse.width/6, grazingHorse.height/6);
 
+//snowflakes code taken from P5 reference
     let t = frameCount / 55;
     fill(random(255, 116));
   // create a random number of snowflakes each frame
@@ -70,7 +71,6 @@ function draw() {
   }
 
   }
-
   // snowflake class
 function snowflake() {
   // initialize coordinates
@@ -103,27 +103,17 @@ function snowflake() {
     ellipse(this.posX, this.posY, this.size);
   };
 
-  // show the 'before' image
+//change RGB values for grazing horse, taken from class lectures
 grazingHorse.loadPixels();
 
-// go through each row
 for (var y = 0; y < height; y++) {
-  // and each column
   for(var x = 0; x < width; x++) {
-
-    // go through EVERY individual pixel's R, G, B, and A
-    var index = (x + y * width) * 4;
-
-      // mess with the RGBa values!
+    var index = (x + y * width) * 7;
       grazingHorse.pixels[index] = random(255); // red
-      // milo.pixels[index + 1] = 255 // green
-      grazingHorse.pixels[index + 2] = y; // blue
-      // milo.pixels[index + 3] = 0; // alpha
+      grazingHorse.pixels[index + 5] = y; // blue
   }
 }
 grazingHorse.updatePixels();
-
-// display manipulated image
 image(grazingHorse, 0, 0);
 }
 
@@ -134,5 +124,5 @@ image(grazingHorse, 0, 0);
     }
   function originalColor() {
     firstP.style ('color', '#000000');//style() a DOM element with CSS from within P5
-    firstP.style('font-size', '16px');//style() a DOM element with CSS from within P5
+    firstP.style('font-size', '34px');//style() a DOM element with CSS from within P5
     }
