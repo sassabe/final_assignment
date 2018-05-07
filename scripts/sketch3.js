@@ -2,9 +2,11 @@ var smallTree;
 var bigTree;
 var runningHorses;
 var grazingHorse;
-var theta = 0;
+
 let x = 0;
 let speed = 1;
+
+let snowflakes = []; // array to hold snowflake objects
 
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
@@ -18,7 +20,6 @@ function setup() {
     firstP.mouseOut(originalColor);
 
     smallTree = loadImage("assets/Tree-Free-PNG-Image.png");
-    bigTree =loadImage("assets/Green_Realistic_Tree_PNG_Clip_Art-1097.png");
     runningHorses = loadImage("assets/horses.png");
     grazingHorse = loadImage("assets/grazingHorse.png");
     cloud = loadImage("assets/cloud.png");
@@ -36,8 +37,7 @@ function draw() {
    if (x >= width || x < 0) {
        speed = -speed;
      }
-    // fill(252, 248, 224);
-     image(cloud, x, height/5, cloud.width/7, cloud.height/7);
+     image(cloud, x, height/7, cloud.width/7, cloud.height/7);
      x = x + speed;
 
     // moon
@@ -51,13 +51,57 @@ function draw() {
     image(smallTree, 100, height/3, smallTree.width/6, smallTree.height/6);
     image(smallTree, 300, height/5, smallTree.width/6, smallTree.height/6);
     image(runningHorses, mouseX, mouseY, runningHorses.width/6, runningHorses.height/6);
-    image(bigTree, 700, height/3, bigTree.width/8, bigTree.height/8);
     image(smallTree, 800, height/3, smallTree.width/6, smallTree.height/6);
     image(smallTree, 750, height/5, smallTree.width/6, smallTree.height/6);
-    image(bigTree, 950, height/3, bigTree.width/8, bigTree.height/8);
     image(grazingHorse, 450, height/2, grazingHorse.width/6, grazingHorse.height/6);
 
+    let t = frameCount / 45;
+
+  // create a random number of snowflakes each frame
+  for (var i = 0; i < random(37); i++) {
+    snowflakes.push(new snowflake()); // append snowflake object
   }
+
+  // loop through snowflakes with a for..of loop
+  for (let flake of snowflakes) {
+    flake.update(t); // update snowflake position
+    flake.display(); // draw snowflake
+  }
+
+  }
+
+  // snowflake class
+function snowflake() {
+  // initialize coordinates
+  this.posX = 0;
+  this.posY = random(-50, 0);
+  this.initialangle = random(0, 2 * PI);
+  this.size = random(2, 5);
+
+  // radius of snowflake spiral
+  // chosen so the snowflakes are uniformly spread out in area
+  this.radius = sqrt(random(pow(width / 2, 2)));
+
+  this.update = function(time) {
+    // x position follows a circle
+    let w = 0.6; // angular speed
+    let angle = w * time + this.initialangle;
+    this.posX = width / 2 + this.radius * sin(angle);
+
+    // different size snowflakes fall at slightly different y speeds
+    this.posY += pow(this.size, 0.5);
+
+    // delete snowflake if past end of screen
+    if (this.posY > height) {
+      let index = snowflakes.indexOf(this);
+      snowflakes.splice(index, 1);
+    }
+  };
+
+  this.display = function() {
+    ellipse(this.posX, this.posY, this.size);
+  };
+}
 
   //change colors of the paragraph with mouseover and return with mouseout. I looked at Dan Shiffman's video https://www.youtube.com/watch?v=KeZBpeH59Q4 on how to set up callback functions.
   function changeColor() {
