@@ -110,7 +110,7 @@ for (var y = 0; y < height; y++) {
   for(var x = 0; x < width; x++) {
     var index = (x + y * width) * 4;
       grazingHorse.pixels[index] = random(255); // red
-      grazingHorse.pixels[index + 3] = y; // blue
+      grazingHorse.pixels[index + 2] = y; // blue
   }
 }
 grazingHorse.updatePixels();
